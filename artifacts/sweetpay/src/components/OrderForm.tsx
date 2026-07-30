@@ -6,7 +6,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+<<<<<<< HEAD
 import { Wallet, ShieldCheck, CheckCircle2 } from "lucide-react";
+=======
+import { Wallet, ArrowRight, ShieldCheck, CheckCircle2 } from "lucide-react";
+>>>>>>> 42c9ccb975d03a2bbafdf0caac8a430677509698
 
 const formSchema = z.object({
   name: z.string().min(2, "الاسم مطلوب"),
@@ -37,6 +41,10 @@ export function OrderForm() {
   const dzdAmount = (amount * 5000).toLocaleString("ar-DZ");
 
   const onSubmit = async (data: FormData) => {
+<<<<<<< HEAD
+=======
+    // Simulate short processing
+>>>>>>> 42c9ccb975d03a2bbafdf0caac8a430677509698
     await new Promise(resolve => setTimeout(resolve, 600));
     
     const phoneNumber = "213550000000";
@@ -53,8 +61,14 @@ export function OrderForm() {
   };
 
   return (
+<<<<<<< HEAD
     <div className="w-full max-w-xl mx-auto">
       <div className="relative rounded-[2rem] bg-card p-8 md:p-10 shadow-2xl shadow-black/5 border border-primary/10 overflow-hidden">
+=======
+    <div id="order" className="w-full max-w-xl mx-auto">
+      <div className="relative rounded-[2rem] bg-card p-8 md:p-10 shadow-2xl shadow-black/5 border border-primary/10 overflow-hidden">
+        {/* Decorative corner accent */}
+>>>>>>> 42c9ccb975d03a2bbafdf0caac8a430677509698
         <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-bl-[100px] -z-10" />
         <div className="absolute bottom-0 left-0 w-40 h-40 bg-secondary/5 rounded-tr-[100px] -z-10" />
 
@@ -100,6 +114,7 @@ export function OrderForm() {
               </div>
 
               <div className="space-y-2">
+<<<<<<< HEAD
                 <Label htmlFor="amount">كمية سويت كوين</Label>
                 <Input 
                   id="amount" 
@@ -107,10 +122,20 @@ export function OrderForm() {
                   min="10"
                   {...register("amount")} 
                   className={errors.amount ? "border-destructive focus-visible:ring-destructive" : ""}
+=======
+                <Label htmlFor="amount">كمية سويت كوين للبيع</Label>
+                <Input 
+                  id="amount" 
+                  type="number" 
+                  dir="ltr"
+                  className={`text-left text-xl font-bold ${errors.amount ? "border-destructive focus-visible:ring-destructive" : ""}`}
+                  {...register("amount")} 
+>>>>>>> 42c9ccb975d03a2bbafdf0caac8a430677509698
                 />
                 {errors.amount && <p className="text-destructive text-sm mt-1 font-medium">{errors.amount.message}</p>}
               </div>
 
+<<<<<<< HEAD
               {amount >= 10 && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
@@ -125,10 +150,20 @@ export function OrderForm() {
               <div className="flex items-center gap-2 text-sm text-muted-foreground bg-muted/50 rounded-xl p-3">
                 <ShieldCheck className="h-5 w-5 text-primary flex-shrink-0" />
                 <span>معلوماتك محمية وآمنة. نحن لا نشارك بياناتك مع أي طرف ثالث.</span>
+=======
+              <div className="bg-secondary/5 rounded-2xl p-6 mt-6 border border-secondary/10 relative overflow-hidden">
+                <div className="absolute right-0 top-0 w-1 h-full bg-primary" />
+                <p className="text-sm text-muted-foreground font-semibold mb-1">المبلغ الذي ستستلمه:</p>
+                <div className="flex items-end gap-2">
+                  <span className="text-4xl font-extrabold text-secondary">{dzdAmount}</span>
+                  <span className="text-lg font-bold text-secondary/70 mb-1">دج</span>
+                </div>
+>>>>>>> 42c9ccb975d03a2bbafdf0caac8a430677509698
               </div>
 
               <Button 
                 type="submit" 
+<<<<<<< HEAD
                 size="lg"
                 className="w-full h-14 text-lg font-bold"
                 disabled={isSubmitting}
@@ -152,6 +187,38 @@ export function OrderForm() {
                 <h3 className="text-2xl font-black text-foreground mb-2">تم إرسال الطلب!</h3>
                 <p className="text-muted-foreground">تم فتح واتساب برسالة طلبك. أكمل التحويل مع فريقنا.</p>
               </div>
+=======
+                size="lg" 
+                className="w-full text-lg h-14 group"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <span className="animate-pulse">جاري التحويل...</span>
+                ) : (
+                  <>
+                    إرسال الطلب عبر واتساب
+                    <ArrowRight className="ml-2 h-5 w-5 group-hover:-translate-x-1 transition-transform rotate-180" />
+                  </>
+                )}
+              </Button>
+              
+              <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground font-medium mt-4">
+                <ShieldCheck className="w-4 h-4 text-primary" />
+                <span>معلوماتك آمنة ومشفرة</span>
+              </div>
+            </motion.form>
+          ) : (
+            <motion.div 
+              key="success"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="text-center py-10 space-y-6"
+            >
+              <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle2 className="w-12 h-12 text-green-600" />
+              </div>
+              <h3 className="text-3xl font-bold text-foreground">تم تجهيز طلبك!</h3>
+>>>>>>> 42c9ccb975d03a2bbafdf0caac8a430677509698
               <p className="text-lg text-muted-foreground">
                 إذا لم يفتح تطبيق واتساب تلقائياً، يمكنك النقر على الزر أدناه.
               </p>

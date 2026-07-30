@@ -35,6 +35,7 @@ export function HowItWorks() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
+<<<<<<< HEAD
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className="relative flex flex-col items-center text-center gap-5 p-8 rounded-3xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
             >
@@ -46,6 +47,26 @@ export function HowItWorks() {
               </div>
               <h3 className="text-xl font-black text-foreground">{step.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{step.desc}</p>
+=======
+              transition={{ delay: i * 0.2 }}
+              className="relative text-center group"
+            >
+              {i !== steps.length - 1 && (
+                <div className="hidden md:block absolute top-12 left-0 w-full h-[2px] bg-border -z-10 translate-x-1/2">
+                  <div className="absolute top-0 right-0 h-full bg-primary transition-all duration-1000 w-0 group-hover:w-full" />
+                </div>
+              )}
+              <div className="w-24 h-24 mx-auto bg-card border-4 border-background shadow-xl rounded-full flex items-center justify-center mb-6 relative z-10 group-hover:scale-110 group-hover:border-primary/20 transition-all duration-300">
+                <step.icon className="w-10 h-10 text-primary" />
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-secondary text-secondary-foreground rounded-full flex items-center justify-center font-bold text-sm">
+                  {i + 1}
+                </div>
+              </div>
+              <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
+              <p className="text-muted-foreground leading-relaxed font-medium">
+                {step.desc}
+              </p>
+>>>>>>> 42c9ccb975d03a2bbafdf0caac8a430677509698
             </motion.div>
           ))}
         </div>

@@ -1,21 +1,4 @@
-<<<<<<< HEAD
 name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
-
-permissions:
-  contents: write
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-
-=======
-name: Deploy SweetPay to GitHub Pages
 
 on:
   push:
@@ -34,26 +17,15 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
->>>>>>> 42c9ccb975d03a2bbafdf0caac8a430677509698
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-<<<<<<< HEAD
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-=======
->>>>>>> 42c9ccb975d03a2bbafdf0caac8a430677509698
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 10
 
-<<<<<<< HEAD
-=======
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -61,35 +33,17 @@ jobs:
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
 
->>>>>>> 42c9ccb975d03a2bbafdf0caac8a430677509698
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build SweetPay
-<<<<<<< HEAD
-        run: pnpm --filter @workspace/sweetpay run build
-        env:
-          PORT: "3000"
-          BASE_PATH: "/sweetpay/"
-          NODE_ENV: production
-
-      - name: Add .nojekyll
-        run: touch artifacts/sweetpay/dist/public/.nojekyll
-
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: artifacts/sweetpay/dist/public
-          branch: gh-pages
-          clean: true
-=======
+      - name: Build
         env:
           BASE_PATH: /sweetpay/
           PORT: 3000
           NODE_ENV: production
         run: pnpm --filter @workspace/sweetpay run build
 
-      - name: Upload Pages artifact
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: artifacts/sweetpay/dist/public
@@ -104,4 +58,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
->>>>>>> 42c9ccb975d03a2bbafdf0caac8a430677509698
