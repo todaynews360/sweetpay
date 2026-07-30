@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "SweetPay"
+version = "1.0.0"
+id = "artifacts/sweetpay"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25493
+
+[services.development]
+run = "pnpm --filter @workspace/sweetpay run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/sweetpay", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/sweetpay/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25493"
+BASE_PATH = "/"
