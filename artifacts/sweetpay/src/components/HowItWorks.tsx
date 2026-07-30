@@ -35,19 +35,6 @@ export function HowItWorks() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-<<<<<<< HEAD
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="relative flex flex-col items-center text-center gap-5 p-8 rounded-3xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
-            >
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center text-primary shadow-inner">
-                <step.icon className="w-8 h-8" />
-              </div>
-              <div className="absolute -top-4 -right-4 w-10 h-10 bg-secondary text-secondary-foreground rounded-full flex items-center justify-center font-black text-lg shadow-md">
-                {i + 1}
-              </div>
-              <h3 className="text-xl font-black text-foreground">{step.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{step.desc}</p>
-=======
               transition={{ delay: i * 0.2 }}
               className="relative text-center group"
             >
@@ -66,7 +53,6 @@ export function HowItWorks() {
               <p className="text-muted-foreground leading-relaxed font-medium">
                 {step.desc}
               </p>
->>>>>>> 42c9ccb975d03a2bbafdf0caac8a430677509698
             </motion.div>
           ))}
         </div>

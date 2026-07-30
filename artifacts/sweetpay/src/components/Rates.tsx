@@ -4,11 +4,8 @@ import { Calculator } from "lucide-react";
 export function Rates() {
   return (
     <section id="rates" className="py-24 bg-secondary text-secondary-foreground relative overflow-hidden">
-<<<<<<< HEAD
-=======
       {/* Decorative patterns */}
       <div className="absolute inset-0 opacity-10 pattern-dots" />
->>>>>>> 42c9ccb975d03a2bbafdf0caac8a430677509698
       <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-80 h-80 bg-primary rounded-full blur-[100px]" />
       
       <div className="container mx-auto px-4 relative z-10">
