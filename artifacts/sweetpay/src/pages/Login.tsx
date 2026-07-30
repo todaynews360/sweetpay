@@ -33,7 +33,7 @@ import { useState } from 'react';
     const [captchaInput, setCaptchaInput] = useState('');
     const [error, setError] = useState('');
     const [captcha, setCaptcha] = useState<Captcha>(generateCaptcha);
-    const base = import.meta.env.BASE_URL?.replace(/\\/$/, '') || '';
+    const base = import.meta.env.BASE_URL?.replace(/\/$/, '') || '';
 
     const refreshCaptcha = () => { setCaptcha(generateCaptcha()); setCaptchaInput(''); };
 

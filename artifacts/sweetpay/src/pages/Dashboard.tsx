@@ -34,7 +34,7 @@ import { useState, useRef } from 'react';
     export default function Dashboard() {
     const [, navigate] = useLocation();
     const { user, logout, updateCardName } = useAuth();
-    const base = import.meta.env.BASE_URL?.replace(/\\/$/, '') || '';
+    const base = import.meta.env.BASE_URL?.replace(/\/$/, '') || '';
 
     const [editingName, setEditingName] = useState(false);
     const [nameInput, setNameInput] = useState('');
