@@ -4,13 +4,13 @@
       <meta charset="utf-8">
       <title>SweetPay</title>
       <script>
-        // SPA redirect for GitHub Pages — preserves path as query param
+        // Redirect to index.html with path encoded in query string (?/path)
         var l = window.location;
         l.replace(
           l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-          l.pathname.split('/').slice(0, 2).join('/') + '/?p=/' +
+          l.pathname.split('/').slice(0, 2).join('/') + '/?/' +
           l.pathname.slice(1).split('/').slice(1).join('/').replace(/&/g, '~and~') +
-          (l.search ? '&q=' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
           l.hash
         );
       </script>
