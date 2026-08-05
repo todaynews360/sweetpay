@@ -3,6 +3,8 @@ import { ArrowLeft, Zap, Shield, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
+  const base = import.meta.env.BASE_URL?.replace(/\/$/, '') || '';
+
   return (
     <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
       {/* Abstract Background Elements */}
@@ -35,7 +37,7 @@ export function Hero() {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button size="lg" className="w-full sm:w-auto h-16 px-10 text-xl" asChild>
-              <a href="#order">
+              <a href={base + '/login'}>
                 حول رصيدك الآن
                 <ArrowLeft className="mr-2 h-6 w-6" />
               </a>
